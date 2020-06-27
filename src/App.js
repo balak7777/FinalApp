@@ -1,43 +1,54 @@
 import React from 'react';
 import './App.css';
-import * as ReactBootStrap from "react-bootstrap";
-import DankMemes from "./Components/DankMemes";
-import MyGraphComponent from "./Components/MyGraphComponent";
+//import * as ReactBootStrap from "react-bootstrap";
+
+//import MyGraphComponent from "./Components/MyGraphComponent";
 import WorldData from "./Components/WorldData";
-import MoreDeets from "./Components/MoreDeets";
-import NavBar from "./Components/Navbar"
+
+import NavBar from "./Components/Navbar";
+import StateWiseData from './Components/StateWiseData';
+import DistrictWiseData from './Components/DistrictWiseData';
+
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-
+import MapMyIndia from './Components/MayMyIndia';
 
 function App() {
+  
   return (
     <div className="App">
-        <Router>
+      <Router>
         <NavBar />
- 
+        <div style={{height: "60px"}}> 
+
+        </div>
+
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/mygraphcomponent" component={MyGraphComponent}>
-              <MyGraphComponent/>
-          </Route>
+          
           <Route path="/worlddata" component={WorldData}>
             <WorldData />
           </Route>
-          <Route path="/deets" component={MoreDeets}>
-            <MoreDeets />
+          <Route path="/statewisedata" component={StateWiseData}>
+            <StateWiseData />
           </Route>
-          <Route path="/dankmemes" component={DankMemes}>
-            <DankMemes />
+          <Route path="/districtwisedata" component={DistrictWiseData}>
+            <DistrictWiseData />
+          </Route>
+          <Route path="/mapmyindia" component={MapMyIndia}>
+            <MapMyIndia />
+          </Route>
+          <Route path="/" component={StateWiseData}>
+            <StateWiseData />
           </Route>
         </Switch>
-    </Router>
+      </Router>
+      
     </div>
   );
 }
